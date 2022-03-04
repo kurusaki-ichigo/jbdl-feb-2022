@@ -15,7 +15,7 @@
 build
 generated
 
-
+out/
 # Runtime directories
 bin
 log
