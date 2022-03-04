@@ -1,0 +1,47 @@
+# IDEs and editors
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.idea
+*.iml
+
+.vscode/*
+.nb-gradle
+.nb-gradle-properties
+
+# Build
+build
+generated
+
+
+# Runtime directories
+bin
+log
+tmp
+
+# User tools: direnv, GitEye, jenv
+.ackrc
+.envrc
+.gradle
+.project
+.java-version
+
+# Temporary files
+*~
+.DS_Store
+.swp
+.gradletasknamecache
+
+# Postgres Docker volume
+docker/postgres/data/*
+
+# Logs
+**/logs
+
+# Cucumber reports folder
+/app/target
+
+# rev.txt
+/app/src/main/resources/public/api/rev.txt
