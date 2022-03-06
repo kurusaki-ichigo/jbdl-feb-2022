@@ -12,13 +12,12 @@ public class ChildClassOfDifferentSubPackage extends UserInfo {
      */
     public static void main(String[] args) {
         ChildClassOfDifferentSubPackage child = new ChildClassOfDifferentSubPackage();
-        child.checkDefaultAccessModifier();
+        child.checkProtectedAccessModifier();
         System.out.println(child);
     }
 
-    public void checkDefaultAccessModifier() {
+    public void checkProtectedAccessModifier() {
         this.userRoles = Arrays.asList("CHILD", "PARENT");
-
     }
 
 

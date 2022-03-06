@@ -27,8 +27,18 @@ public class SimilarMethods extends UserInfo {
 //        return true;
 //    }
 
-
+    /**
+     * {@link #isJavaSupportingSimilarMethods(String, List)}
+     * @param id
+     * @param userRoles
+     * @return
+     */
     public boolean isJavaSupportingSimilarMethods(String id , List<String> userRoles){
+        return false;
+    }
+
+
+    public boolean isJavaSupportingSimilarMethods(List<String> userRoles, String id){
         return false;
     }
 

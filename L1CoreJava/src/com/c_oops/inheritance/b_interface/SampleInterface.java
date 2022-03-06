@@ -14,4 +14,9 @@ public interface SampleInterface {
     default double returnMethodArgumentsSum(double a, double b){
         return a + b;
     }
+
+    static double returnArea(double a, double b){
+        return a* b;
+    }
+
 }
