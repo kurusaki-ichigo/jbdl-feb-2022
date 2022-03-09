@@ -17,4 +17,5 @@ Course Contents for Java Backend
     Lecture 3 (Highlights):
         *   Functional Interface
         *   Lambda Expression
+        *   Method Reference
         *   Streams
