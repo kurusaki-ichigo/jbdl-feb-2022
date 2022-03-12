@@ -78,8 +78,8 @@ public class Main {
                         .sorted(Comparator.comparing(Transaction::getValue).reversed())
                         .map(Transaction::getId)
                         .collect(Collectors.toList());
-
-
+        System.out.println("--------------");
+        System.out.println(creditCardTransactionIds);
         /**
          * find all the transactions of type donations and return the list of transactionIds
          *  in the decreasing order of their value
