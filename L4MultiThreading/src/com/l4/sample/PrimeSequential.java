@@ -26,7 +26,8 @@ public class PrimeSequential {
 //        Thread.sleep(1000);
 //        System.out.println(Thread.currentThread());
 
-        List<Integer> inputList = Arrays.asList(600000, 800000, 1000000, 120000, 700000, 500000, 400000, 900000, 300000,
+        List<Integer> inputList = Arrays.asList(600000, 800000, 1000000, 120000, 700000, 500000, 400000, 900000,
+                                                300000,
                                                 1000000);
 //        List<Integer> inputList = Arrays.asList(60000);
 

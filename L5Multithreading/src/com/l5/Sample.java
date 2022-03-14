@@ -1,6 +1,4 @@
-package com.l4.sample.parallel;
-
-import com.l4.sample.PrimeSequential;
+package com.l5;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -8,13 +6,13 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
-public class ParallelExcutorService {
+public class Sample {
+
 
     public static void main(String[] args) throws InterruptedException {
         /**
@@ -51,9 +49,9 @@ public class ParallelExcutorService {
         List<Future<List<Integer>>> futures = new LinkedList<>();
         inputList.stream().forEach(
                 input -> {
-                        futures.add(
-                                executorService.submit(() -> PrimeSequential.firstNPrimeNumbers(input))
-                        );
+                    futures.add(
+                            executorService.submit(() -> firstNPrimeNumbers(input))
+                    );
                 }
         );
 
@@ -119,7 +117,7 @@ public class ParallelExcutorService {
         inputList.stream().forEach(
                 input -> executorService.submit(() ->
                                                 {
-                                                    List<Integer> integers = PrimeSequential.firstNPrimeNumbers(input);
+                                                    List<Integer> integers = firstNPrimeNumbers(input);
                                                     System.out.println(
                                                             Thread.currentThread()
                                                                     + " value " + input + " output computed " + (
@@ -133,26 +131,59 @@ public class ParallelExcutorService {
     }
 
 
-    static class DemoThread implements Runnable {
-        int input;
-        List<Integer> result;
 
-        public DemoThread(int number) {
-            this.input = number;
+    public static List<Integer> firstNPrimeNumbers(int input) {
+        List<Integer> primeNumberList = new LinkedList<>();
+        int count = 0;
+        Integer result = 2;
+        while (true) {
+            if (count >= input) {
+                break;
+            }
+            if (isPrime(result)) {
+                primeNumberList.add(result);
+                count++;
+            }
+            result++;
         }
 
-        boolean isResultNull() {
-            return Objects.isNull(result) || result.size() == 0;
-        }
-
-        @Override
-        public void run() {
-            System.out.println(" inside the thread {} " + Thread.currentThread() + " value " + input);
-            this.result = PrimeSequential.firstNPrimeNumbers(input);
-            System.out.println("Byee byee " + Thread.currentThread() + " value "
-                                       + input + " is result null :: " + isResultNull());
-        }
+//        Integer result = 2;
+//        for (int i = 0; i < input; i++) {
+//            while (count <= i) {
+//                if (isPrime(result)) {
+//                    primeNumberList.add(result);
+//                    count++;
+//                }
+//                result += 1;
+//            }
+//        }
+        return primeNumberList;
     }
+
+
+    /**
+     * checks whether the given number is prime or not
+     *
+     * @param input
+     * @return
+     */
+    static boolean isPrime(int input) {
+        if (input <= 1) {
+            return false;
+        } else if (input == 2) {
+            return true;
+        } else if (input % 2 == 0) {
+            return false;
+        }
+
+        for (int i = 3; i <= Math.sqrt(input); i += 2) {
+            if (input % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 
 }
