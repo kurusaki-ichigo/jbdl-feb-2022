@@ -19,3 +19,18 @@ Course Contents for Java Backend
         *   Lambda Expression
         *   Method Reference
         *   Streams
+
+#### **_Week 3_**
+    Lecture 4 (Highlights):
+        *   Threads and its properties like Daemon.
+        *   Multithreading concepts
+        *   Time Processing comparison of Sequential processing and Parallel Processing
+        *   Multi Threading using Executors
+  
+    Lecture 5 (Highlights):
+        *   MultiThreading Contined..
+        *   Fork Join Pool
+        *   Streams.Parallel -- using common fork join pool
+        *   Maven Importance and a sample Maven Project
+
+#### **_Week 4_**
