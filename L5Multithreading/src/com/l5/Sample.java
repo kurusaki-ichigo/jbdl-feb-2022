@@ -1,31 +1,49 @@
 package com.l5;
 
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 public class Sample {
 
 
+
     public static void main(String[] args) throws InterruptedException {
+        /**
+         * not work --
+         *
+         */
+
+
+
         /**
          * executor service -- priving a pool of threads
          */
 
+        /**
+         *
+         */
+//        ExecutorService executorService = Executors.newFixedThreadPool(
+//                /**
+//                 *  ??
+//                 */
+//                Runtime.getRuntime().availableProcessors() - 1
+//        );
 
-        ExecutorService executorService = Executors.newFixedThreadPool(
-                /**
-                 *  ??
-                 */
-                Runtime.getRuntime().availableProcessors() - 1
-        );
+        /**
+         *
+         */
+        ExecutorService executorService = new ForkJoinPool();
+
 
         /**
          * Tennis
@@ -62,28 +80,28 @@ public class Sample {
          *
          *  1.get --> 10 second
          *  2 took 5 seconds
-         *  3 -0-> 15 seconds
+         *  3 ---> 15 seconds
          *  4 --> 9 seconds
          *
          *
          */
-//        futures.stream().forEach(future -> {
-//            try {
-//                List<Integer> integers = future.get();
-//                System.out.println(
-//                        Thread.currentThread()
-//                                +  " output computed " + (
-//                                Objects.isNull(
-//                                        integers) || integers.isEmpty() ? " false " :
-//                                        "true")
-//                                + " is Deamon " + Thread.currentThread().isDaemon()
-//                );
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            } catch (ExecutionException e) {
-//                e.printStackTrace();
-//            }
-//        });
+        futures.stream().forEach(future -> {
+            try {
+                List<Integer> integers = future.get();
+                System.out.println(
+                        Thread.currentThread()
+                                +  " output computed " + (
+                                Objects.isNull(
+                                        integers) || integers.isEmpty() ? " false " :
+                                        "true")
+                                + " is Deamon " + Thread.currentThread().isDaemon()
+                );
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        });
 
 
 
@@ -110,7 +128,7 @@ public class Sample {
     private static void logTime(LocalDateTime startTime) {
         LocalDateTime endTime = LocalDateTime.now();
         Duration between = Duration.between(startTime, endTime);
-        System.out.println(" Time taken in seconds " + between.getSeconds());
+        System.out.println(" Time taken in nanoSeconds " + between.getNano());
     }
 
     private static void submitTask(ExecutorService executorService, List<Integer> inputList) {
@@ -133,6 +151,7 @@ public class Sample {
 
 
     public static List<Integer> firstNPrimeNumbers(int input) {
+        System.out.println(Thread.currentThread() + " is Deamon " + Thread.currentThread().isDaemon());
         List<Integer> primeNumberList = new LinkedList<>();
         int count = 0;
         Integer result = 2;
