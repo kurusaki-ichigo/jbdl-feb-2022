@@ -39,3 +39,8 @@ Course Contents for Java Backend
         *   Use case to study : Uber Eats and Paytm Free Food
         *   Basic Spring Boot Application - dependency exclusion,  embedded tomcat , app properties etc
         *   Rest Api and Idempotency
+
+    Lecture 7 (Highlights):
+        *   CRUD REST API 
+        *   REST vs SOAP : (https://stackoverflow.com/questions/19884295/soap-vs-rest-differences)
+        *   Spring Basics - IOC , Dependecy Injection etc.
