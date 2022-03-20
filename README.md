@@ -34,3 +34,8 @@ Course Contents for Java Backend
         *   Maven Importance and a sample Maven Project
 
 #### **_Week 4_**
+    Lecture 6 (Highlights):
+        *   Application basics-- Server , DNS, IP , Request , Response , Http Status Code.
+        *   Use case to study : Uber Eats and Paytm Free Food
+        *   Basic Spring Boot Application - dependency exclusion,  embedded tomcat , app properties etc
+        *   Rest Api and Idempotency
