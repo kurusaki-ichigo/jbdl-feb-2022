@@ -219,14 +219,5 @@ public class OnbaordingController implements InitializingBean {
         return "I was doing just fine";
     }
 
-    @RequestMapping(value = "/employee/add", method = RequestMethod.POST)
-    public Map<String, UserInfo> postingReponse(@RequestBody UserInfo userInfo){
-        userInfoMap.put(userInfo.name, userInfo);
-        log.info(" user {} userInfoMap {}", userInfo, userInfoMap);
-        return userInfoMap;
-    }
-
-
-
 
 }
