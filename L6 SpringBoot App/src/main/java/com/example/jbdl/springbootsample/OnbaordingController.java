@@ -2,6 +2,7 @@ package com.example.jbdl.springbootsample;
 
 
 import com.example.jbdl.springbootsample.model.UserInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @RestController
+@Slf4j
 public class OnbaordingController implements InitializingBean {
 
     int dbValue= 5;
@@ -27,13 +29,21 @@ public class OnbaordingController implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        userInfoMap.put("RAM", new UserInfo("RAM"));
-        userInfoMap.put("MIGUEL", new UserInfo("MIGUEL"));
-        userInfoMap.put("JOEY", new UserInfo("JOEY"));
-        userInfoMap.put("CHANDLER", new UserInfo("CHANDLER"));
+        UserInfo sample = new UserInfo();
+        sample.name = "RAM";
+        userInfoMap.put(sample.name,sample);
+        sample = new UserInfo();
+        sample.name = "MIGUEL";
+        userInfoMap.put(sample.name,sample);
+        sample = new UserInfo();
+        sample.name = "JOEY";
+        userInfoMap.put(sample.name,sample);
+        sample = new UserInfo();
+        sample.name = "CHANDLER";
+        userInfoMap.put(sample.name,sample);
         System.out.println(userInfoMap.toString());
         userIdToUserInfoMap = userInfoMap.entrySet().stream()
-                .collect(Collectors.toMap(entry -> (entry.getValue()).getId(), entry -> entry.getValue()));
+                .collect(Collectors.toMap(entry -> (entry.getValue()).id, Map.Entry::getValue));
     }
     /**
      *
@@ -208,6 +218,14 @@ public class OnbaordingController implements InitializingBean {
     public String getResponse2(){
         return "I was doing just fine";
     }
+
+    @RequestMapping(value = "/employee/add", method = RequestMethod.POST)
+    public Map<String, UserInfo> postingReponse(@RequestBody UserInfo userInfo){
+        userInfoMap.put(userInfo.name, userInfo);
+        log.info(" user {} userInfoMap {}", userInfo, userInfoMap);
+        return userInfoMap;
+    }
+
 
 
 

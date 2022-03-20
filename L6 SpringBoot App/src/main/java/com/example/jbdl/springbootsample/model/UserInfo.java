@@ -1,22 +1,12 @@
 package com.example.jbdl.springbootsample.model;
 
 
-import lombok.Data;
-import lombok.Getter;
+import lombok.ToString;
 
-@Data
-@Getter
+@ToString
 public class UserInfo {
 
-    double id = Math.random();
-    String name;
+    public String name;
+    public double id = Math.random();
 
-
-  public  UserInfo(String name){
-        this.name = name;
-  }
-
-  public double getId(){
-      return this.id;
-  }
 }
