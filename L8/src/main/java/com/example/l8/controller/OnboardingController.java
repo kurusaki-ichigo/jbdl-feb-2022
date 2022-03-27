@@ -1,11 +1,11 @@
-package com.example.L7.L7.controller;
+package com.example.l8.controller;
 
 
-import com.example.L7.L7.model.UserInfo;
+import com.example.l8.model.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +37,9 @@ public class OnboardingController implements InitializingBean , DisposableBean {
     }
 
 
+    public void doSomething(){
+
+    }
 
 
     /**
@@ -120,10 +123,12 @@ public class OnboardingController implements InitializingBean , DisposableBean {
         return userInfo;
     }
 
-
-
-//    @GetMapping("/users")
-    @RequestMapping(value = "/api/v1/user", method = RequestMethod.GET)
+    /**
+     * prefrence provided to {@link RequestMapping} over {@link GetMapping}
+     * @return
+     */
+    @RequestMapping(value = "/api/v1", method = RequestMethod.GET)
+    @GetMapping("/users")
     public List<UserInfo> getAllUsers(){
         log.info("Inside all users ");
         log.info(" idToUserMap {} ", idToUserInfoMap);
