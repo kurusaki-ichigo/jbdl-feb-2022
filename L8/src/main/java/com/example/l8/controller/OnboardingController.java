@@ -1,6 +1,7 @@
 package com.example.l8.controller;
 
 
+import com.example.l8.exception.UserNotFoundException;
 import com.example.l8.model.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
@@ -153,6 +154,11 @@ public class OnboardingController implements InitializingBean , DisposableBean {
      *
      * long integer /// why -- UUID - random ids
      *
+     *  Bean
+     *      IOC
+     *        Inversion of Control
+     *          ------> project --- @Component (directly or indirectly)
+     *
      * @param id
      * @return
      */
@@ -162,7 +168,7 @@ public class OnboardingController implements InitializingBean , DisposableBean {
         log.info(" id {} idToUserMap {} ", id  ,idToUserInfoMap);
         if(CollectionUtils.isEmpty(idToUserInfoMap)){
             log.warn(" No users configured");
-            throw new RuntimeException(" No users ");
+            throw new UserNotFoundException(" No users ");
         }
 
         UserInfo userInfo = idToUserInfoMap.get(id);

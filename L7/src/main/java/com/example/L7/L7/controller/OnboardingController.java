@@ -5,7 +5,9 @@ import com.example.L7.L7.model.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -148,6 +150,12 @@ public class OnboardingController implements InitializingBean , DisposableBean {
      *
      * long integer /// why -- UUID - random ids
      *
+     *
+     *  get users with name like %oe%
+     *
+     *
+     *
+     *
      * @param id
      * @return
      */
@@ -167,6 +175,23 @@ public class OnboardingController implements InitializingBean , DisposableBean {
         }
 
         return userInfo;
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<UserInfo> getById(@RequestParam(name = "id") String id){
+        log.info("Inside userId ");
+        log.info(" id {} idToUserMap {} ", id  ,idToUserInfoMap);
+        if(CollectionUtils.isEmpty(idToUserInfoMap)){
+            log.warn(" No users configured");
+            throw new RuntimeException(" No users ");
+        }
+
+        UserInfo userInfo = idToUserInfoMap.get(id);
+        if(Objects.isNull(userInfo)){
+            log.error(" No user found ");
+            throw new RuntimeException(" No valid user for id " + id);
+        }
+        return new ResponseEntity<>(userInfo, HttpStatus.OK);
     }
 
 

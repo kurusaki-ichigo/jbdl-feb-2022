@@ -137,8 +137,6 @@ public class OnboardingControllerV2 implements InitializingBean {
          * using restTemplate
          */
         log.info(" restTemplate");
-
-
         return demoRestTemplate.getForObject("https://picsum.photos/id/1/200/300", byte[].class);
 
 //        Request request = new Request.Builder()

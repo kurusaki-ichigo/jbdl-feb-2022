@@ -49,3 +49,7 @@ Course Contents for Java Backend
     Lecture 8 (Highlights):
         *   Revision : topics covered in previous lectures (@RestController vs @Controller, IOC , Bean Resolution)
         *   Dependency Injectection
+
+    Lecture 9 (Highlights):
+        *   Doubt Session 
+
