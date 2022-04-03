@@ -4,6 +4,7 @@ import com.example.l10.L10.config.RestTemplateConfig;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,12 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping(value = "/v2")
 public class OnboardingControllerV2 {
 
+
+
+
+    @Autowired
+    @Qualifier("restTemplate2")
+    RestTemplate restTemplate;
 
     /**
      * field injection
