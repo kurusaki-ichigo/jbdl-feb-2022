@@ -59,4 +59,8 @@ Course Contents for Java Backend
         *   Monolith vs Microservice
         *   Bean Resolution and DI revision
 
+    Lecture 11 (Highlights):
+        *   Databases (Relational vs Non Relational)
+        *   Using H2 as datasource
+        *   Using MySql as datasource
 
