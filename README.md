@@ -53,3 +53,10 @@ Course Contents for Java Backend
     Lecture 9 (Highlights):
         *   Doubt Session 
 
+#### **_Week 6_**
+    Lecture 10 (Highlights):
+        *   Revision : Bean Scopes (Prototype vs Singleton) and IOC Container
+        *   Monolith vs Microservice
+        *   Bean Resolution and DI revision
+
+
