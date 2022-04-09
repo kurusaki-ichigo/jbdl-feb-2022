@@ -64,3 +64,10 @@ Course Contents for Java Backend
         *   Using H2 as datasource
         *   Using MySql as datasource
 
+#### **_Week 7_**
+    Lecture 12 (Highlights):
+        *   Spring Data JPA and Hibernate
+
+    Lecture 13 (Highlights):
+        *   Minor Project 1 - library management
+
