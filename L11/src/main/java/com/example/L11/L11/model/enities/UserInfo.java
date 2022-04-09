@@ -21,7 +21,8 @@ public class UserInfo {
     @JsonIgnore
     Integer id;
 
-    @NonNull String name;
+    @NonNull
+    String name;
 
     String email;
 

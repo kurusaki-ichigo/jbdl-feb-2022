@@ -8,13 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @Slf4j
@@ -48,5 +46,12 @@ public class OnboardingController {
         return new ResponseEntity<>(userService.fetchAllUsers(), HttpStatus.OK);
     }
 
+
+    @GetMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Optional<UserInfo>> fetchUserById(@RequestParam( name = "userId") String id){
+        log.info("Request Received for fetching all users  ");
+        return new ResponseEntity<>(userService.fetchOneById(id), HttpStatus.OK);
+    }
 
 }

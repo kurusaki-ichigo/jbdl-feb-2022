@@ -13,6 +13,18 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+
+/**
+ *
+ *  --> request {@link  CreateUserRequestDto}
+ *      mapstruct
+ *      Lombook builder
+ *  --> entity {@link  UserInfo}
+ *
+ */
+
+
+
 @ToString
 @Getter
 @Setter
