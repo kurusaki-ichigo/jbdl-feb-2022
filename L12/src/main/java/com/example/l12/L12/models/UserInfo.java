@@ -29,6 +29,47 @@ import java.time.LocalDateTime;
  *  Parking Lot
  *      (Minor Project 2)
  *
+ *
+ *
+ *  Multiple
+ *      ----> @Transactional (JPA repository) -- we dont have to use
+ *      --> we have multiple calls to db
+ *          ---> we have to use
+ *
+ *
+ *          Order -- state (IN_PROGRESS)
+ *          book my show
+ *
+ * @Transactional vs @Transactional at each step
+ *          {
+ *                  --> hold ticket (blocked)
+ *                      --> Place an order (pending state)
+ *                          --> payment (pending)
+ *                          --> payment (success)
+ *                      ---> order is success
+ *                 ---> marked assigned
+ *              ---> tickets generated
+ *              (way long process)
+ *                      --> parsing certain data
+ *                      ---> hitting apis of 3rd
+ *           } catch (Exception){
+ *
+ *                  -- unblock ticket
+ *                  -- mark order invalid
+ *                  -- mark payment invalid
+ *
+ *           }
+ *
+ *
+ *          ||
+ *   ------------>  passport information (gov api) --> (definetly lag)
+ *  Transactional --> connection.open()
+ *
+ *
+ *
+ *
+ *
+ *
  */
 
 @Entity

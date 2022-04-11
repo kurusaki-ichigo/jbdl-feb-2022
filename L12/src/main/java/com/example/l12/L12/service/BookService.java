@@ -6,8 +6,10 @@ import com.example.l12.L12.requests.CreateBookRequestDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -19,7 +21,9 @@ public class BookService {
     public Book createBook(CreateBookRequestDto userRequestDto) {
         Book  book = userRequestDto.toBook();
         bookRepository.save(book);
-        return book;
+        Integer id = book.getId();
+        Optional<Book> byId = bookRepository.findById(id);
+        return byId.get();
     }
 
     public List<Book> fetchAllBooks() {
