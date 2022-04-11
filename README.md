@@ -69,5 +69,7 @@ Course Contents for Java Backend
         *   Spring Data JPA and Hibernate
 
     Lecture 13 (Highlights):
-        *   Minor Project 1 - library management
+        *   Minor Project 1 - chegg.com
+        *   Mappings oneToMany , ManyToOne , OneToOne
+
 
