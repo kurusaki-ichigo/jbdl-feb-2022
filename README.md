@@ -75,3 +75,13 @@ Course Contents for Java Backend
 #### **_Week 8_**
     Lecture 14 (Highlights):
         *   Minor Project 1 Contd. : (Adding config, response formatter, and live example )
+        *   Versioning and audited
+
+    Lecture 15 (Highlights):
+        *   JPA composite key
+        *   JPA many to many relationships
+        *   Introduction to Spring Security
+
+    Lecture 16 (Highlights):
+        *   Spring Security Contd.
+
