@@ -1,5 +1,6 @@
 package com.example.L13.L13.controller;
 
+import com.example.L13.L13.commons.ResponseGenerator;
 import com.example.L13.L13.models.Book;
 import com.example.L13.L13.requests.CreateBookRequestDto;
 import com.example.L13.L13.service.BookService;
@@ -23,11 +24,14 @@ public class BookController {
     @Autowired
     BookService bookService;
 
+    @Autowired
+    ResponseGenerator responseGenerator;
+
     @PostMapping(value = "/book", produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Book> createAUser(@Valid @RequestBody CreateBookRequestDto book){
+    public ResponseEntity<String> createAUser(@Valid @RequestBody CreateBookRequestDto book){
         log.info("Request Received {} " , book);
-        return new ResponseEntity<>(bookService.createBook(book), HttpStatus.CREATED);
+        return responseGenerator.generateSuccessResponse(bookService.createBook(book), HttpStatus.CREATED);
     }
 
 

@@ -57,5 +57,65 @@ package com.example.L13.L13.models;
  *      book has foreign key author_id ()               author (id)
  *
  *
+ *      Order N----------1 User
+ *      Order - ManytoOne user
+ *      User - onetoMany order
+ *
+ *
+ *      Order ---------- Books
+ *      Order to books
+ *      1 --------- 1 book (many to many to later)
+ *      Book --- Multiple orders (  Book to order single relationship --- @Audited)
+ *
+ *
+ *
+ *
+ *
+ *
+ *      -------> Distributed lock
+ *      ---> user recharges his wallet
+ *
+ *
+ *
+ *      --> payment gateway (orderId , success)
+ *
+ *
+ *      ----> multi instance of the spring boot app.  100,000
+ *            --->  (I1) / order/ status (acquire a distributed lock)
+ *                         T1 \___> check order id , move it from pending to success , update wallet by order amount and return ok.
+ *
+ *            --->  (I2) / order /status
+ *                          T2 \___> check order id , move it from pending to success , update wallet by order amount and return ok.
+ *                          ---> push it to queue to be processed - 10 mins from now
+ *
+ *                          (redis it down) -- > what would happend
+ *             (acquire a distributed lock -- unique orderRefernce --> redis -- ttl --> orderReference)
+ *
+ *       1000 +  100,000 +  100,000 = twice ? if you do not add proper check
+ *
+ *      Order was initially in pending state
+ *          Order
+ *          (233b237f-91d1-4ad9-9486-34cef84d4481 | PENDING | 100,000 | 1 (version))
+ *
+ *
+ *
+ *          --> T1 -- update order set orderStatus = SUCESS , version++ where orderReference="233b237f-91d1-4ad9-9486-34cef84d4481" and version=1
+ *
+ *            (233b237f-91d1-4ad9-9486-34cef84d4481 | SUCESS | 100,000 | 2 (version))
+ *
+ *          --> T2 -- update order set orderStatus = SUCESS , version++ where orderReference="233b237f-91d1-4ad9-9486-34cef84d4481" and version=1
+ *            (233b237f-91d1-4ad9-9486-34cef84d4481 | SUCESS | 100,000 | 2 (version))
+ *
+ *            throw Optimistic lock exception
+ *
+ *      /order/status (orderReferenceId , success/ failed){
+ *
+ *      }
+ *
+ *
+ *
+ *
+ *
+ *
  *
  */

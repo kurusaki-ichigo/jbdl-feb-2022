@@ -199,6 +199,7 @@ public class OnboardingController implements InitializingBean , DisposableBean {
      * POST
      */
     /**
+     *  Spring boot --> jackson (serializer and deserializer)
      *
      *          FE (json )  ---------> BE (spring boot application) (Java Object)  {@link UserInfo} | RequestBody
      *              (json) <-------(   )---  (java) {@link UserInfo}

@@ -13,15 +13,16 @@ package com.example.L13.L13;
  *      3) Relationship or Cardinality
  *      4) HLD
  *
- *      Entites - Books, Student , Author , Order -- > trying to issue a book (rent) , return a book
+ *      Entites - Books, Student/UserInfo , Author , Order -- >  {trying to issue a book (rent) , return a book}, purchase a book
  *
  *      functionalities =
  *          ---> search a book by name , isbn
- *          ---> transactions made in last 30 days
+ *          ---> transactions made in last 30 days (later)
  *          -->  trying to issue a book (rent) , return a book
  *          --> fine if you exceed return period
  *          --> reviews (if time allows)
  *          --> max books to rent
+ *
  *
  *  Not having this as of now as I want the ledger
  *  *     Order 1---------1 Book (active order)       ---> this would only provide the current snapshot
@@ -33,6 +34,11 @@ package com.example.L13.L13;
  *
  *      Relationship / Cardinality
  *      (many to many)
+ *
+ *      Unique book ----> more than one student (yes / no)
+ *      `1:1
+ *
+ *      Can one student issue more than one books at a time (max capacity -- 15)
  *
  *
  *      Book N-------1 Student      (manyToOne with respect to book but oneToMany with respect to Student)

@@ -1,9 +1,11 @@
 package com.example.L13.L13.service;
 
+import com.example.L13.L13.exceptions.BookException;
 import com.example.L13.L13.exceptions.BookExistsException;
 import com.example.L13.L13.exceptions.ConnectionErrorException;
 import com.example.L13.L13.models.Author;
 import com.example.L13.L13.models.Book;
+import com.example.L13.L13.models.StatusCode;
 import com.example.L13.L13.repository.BookRepository;
 import com.example.L13.L13.requests.CreateBookRequestDto;
 import lombok.extern.slf4j.Slf4j;
@@ -27,10 +29,10 @@ public class BookService {
     public Book createBook(CreateBookRequestDto userRequestDto) {
         Book  book = userRequestDto.toBook();
 
-        Optional<Book> exisitingBook = bookRepository.findByIsbn(book.getIsbn());
-        if(exisitingBook.isPresent()){
-            throw new BookExistsException();
-        }
+//        Optional<Book> exisitingBook = bookRepository.findByIsbn(book.getIsbn());
+//        if(exisitingBook.isPresent()){
+//            throw new BookException(StatusCode.CHEGG_01);
+//        }
 
         /**
          * create a new author is exisiting not present
@@ -57,6 +59,10 @@ public class BookService {
 
     public List<Book> fetchAllBooks() {
         return bookRepository.findAll();
+    }
+
+    public Optional<Book> findById(Integer id) {
+        return bookRepository.findById(id);
     }
 
 }

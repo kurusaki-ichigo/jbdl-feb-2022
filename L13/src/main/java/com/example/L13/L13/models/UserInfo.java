@@ -1,5 +1,6 @@
 package com.example.L13.L13.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -29,9 +30,16 @@ public class UserInfo {
 
 
     @OneToMany(mappedBy = "user")
+    @ToString.Exclude
+    @JsonIgnore
     List<Book> issuedBooks;
 
 
+
+    @OneToMany(mappedBy = "user")
+    @ToString.Exclude
+    @JsonIgnore
+    List<Orders> ordersList;
 
 
 

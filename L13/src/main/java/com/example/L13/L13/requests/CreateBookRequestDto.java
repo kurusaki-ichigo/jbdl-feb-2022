@@ -2,6 +2,7 @@ package com.example.L13.L13.requests;
 
 import com.example.L13.L13.models.Author;
 import com.example.L13.L13.models.Book;
+import com.example.L13.L13.models.BookStatus;
 import lombok.*;
 
 import javax.validation.constraints.Email;
