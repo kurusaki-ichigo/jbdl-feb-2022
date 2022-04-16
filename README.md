@@ -72,4 +72,6 @@ Course Contents for Java Backend
         *   Minor Project 1 - chegg.com
         *   Mappings oneToMany , ManyToOne , OneToOne
 
-
+#### **_Week 8_**
+    Lecture 14 (Highlights):
+        *   Minor Project 1 Contd.
