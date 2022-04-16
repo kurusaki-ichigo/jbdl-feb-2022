@@ -74,4 +74,4 @@ Course Contents for Java Backend
 
 #### **_Week 8_**
     Lecture 14 (Highlights):
-        *   Minor Project 1 Contd.
+        *   Minor Project 1 Contd. : (Adding config, response formatter, and live example )
