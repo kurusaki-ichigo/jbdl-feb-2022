@@ -44,4 +44,9 @@ public class MyAuthenticalFilter extends OncePerRequestFilter {
         SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
         filterChain.doFilter(request, response);
     }
+
+
+    /**
+     * GenericFilterBean
+     */
 }
