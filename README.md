@@ -85,3 +85,10 @@ Course Contents for Java Backend
     Lecture 16 (Highlights):
         *   Spring Security Contd.
 
+#### **_Week 9_**
+
+    Lecture 17 (Highlights):
+        *   Caching Case Study with Tiny Url and JVM Cache - Ehcache.
+
+    Lecture 18 (Highlights):
+        *   Distributed Cache - Redis.
