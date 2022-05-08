@@ -100,3 +100,11 @@ Course Contents for Java Backend
 
     Lecture 20 (Highlights):
         *   Kafka implentation
+
+#### **_Week 11_**
+
+    Lecture 21 (Highlights):
+        *   Spring Security Revised
+        *   JWT authentication
+        *   OAuth Authentication Implementation - Google and Githib
+    
