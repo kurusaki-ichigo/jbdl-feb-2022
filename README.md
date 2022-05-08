@@ -92,3 +92,11 @@ Course Contents for Java Backend
 
     Lecture 18 (Highlights):
         *   Distributed Cache - Redis.
+
+#### **_Week 10_**
+
+    Lecture 19 (Highlights):
+        *   Kafka - setup and basic introduction
+
+    Lecture 20 (Highlights):
+        *   Kafka implentation
