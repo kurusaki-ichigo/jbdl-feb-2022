@@ -107,4 +107,8 @@ Course Contents for Java Backend
         *   Spring Security Revised
         *   JWT authentication
         *   OAuth Authentication Implementation - Google and Githib
-    
+
+#### **_Week 12_**
+
+    Lecture 22 && 23 (Highlights):
+        *   Major Project - Ewallet
